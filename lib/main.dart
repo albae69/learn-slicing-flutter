@@ -1,4 +1,4 @@
-import 'package:booking_app/presentation/pages/onboarding.dart';
+import 'package:booking_app/presentation/pages/welcome.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: Scaffold(body: OnBoarding()),
+      home: Scaffold(body: Welcome()),
     );
   }
 }

@@ -8,7 +8,7 @@ class OnBoarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _listOnboarding = listOnboarding;
+    final _onboarding = onboarding;
 
     return Scaffold(
       backgroundColor: ThemeColor.accentPink,
@@ -32,11 +32,11 @@ class OnBoarding extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        _listOnboarding[0].title,
+                        _onboarding.title,
                         style: ThemeTextStyle.h3,
                       ),
                       Text(
-                        _listOnboarding[0].description,
+                        _onboarding.description,
                         style: ThemeTextStyle.paragraph_md,
                         textAlign: TextAlign.center,
                       ),
@@ -44,22 +44,11 @@ class OnBoarding extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 64),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Button(
-                      title: "Skip",
-                      onTap: () {},
-                      type: TypeButton.secondary,
-                    ),
-                    const SizedBox(width: 16),
-                    Button(
-                      title: "Next",
-                      onTap: () {},
-                    ),
-                  ],
-                )
+                Button(
+                  width: double.infinity,
+                  title: "Next",
+                  onTap: () {},
+                ),
               ],
             ),
           ),

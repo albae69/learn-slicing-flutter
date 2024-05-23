@@ -8,15 +8,20 @@ class Button extends StatelessWidget {
   final VoidCallback onTap;
   final bool? loading;
   final TypeButton? type;
+  final TextStyle? textStyle;
+  final BoxDecoration? boxDecoration;
 
-  const Button(
-      {super.key,
-      required this.title,
-      required this.onTap,
-      this.loading,
-      this.height = 56,
-      this.width = 147.5,
-      this.type = TypeButton.primary});
+  const Button({
+    super.key,
+    required this.title,
+    required this.onTap,
+    this.loading,
+    this.textStyle,
+    this.height = 56,
+    this.width = 147.5,
+    this.type = TypeButton.primary,
+    this.boxDecoration,
+  });
 
   Widget primary(BuildContext context) {
     return InkWell(
@@ -24,14 +29,20 @@ class Button extends StatelessWidget {
       child: Container(
         height: height,
         width: width ?? double.infinity,
-        decoration: BoxDecoration(
-          color: ThemeColor.black,
-          borderRadius: BorderRadius.circular(5.5),
-        ),
+        decoration: boxDecoration != null
+            ? boxDecoration!.copyWith(
+                color: ThemeColor.black,
+                borderRadius: BorderRadius.circular(5.5),
+              )
+            : BoxDecoration(
+                color: ThemeColor.black,
+                borderRadius: BorderRadius.circular(5.5),
+              ),
         child: Center(
           child: Text(
             title,
-            style: ThemeTextStyle.btn_lg.copyWith(color: ThemeColor.white),
+            style: textStyle ??
+                ThemeTextStyle.btn_lg.copyWith(color: ThemeColor.white),
           ),
         ),
       ),
@@ -44,14 +55,18 @@ class Button extends StatelessWidget {
       child: Container(
         height: height,
         width: width ?? double.infinity,
-        decoration: BoxDecoration(
-          border: Border.all(width: 1),
-          borderRadius: BorderRadius.circular(5.5),
-        ),
+        decoration: boxDecoration != null
+            ? boxDecoration!.copyWith(
+                borderRadius: BorderRadius.circular(5.5),
+              )
+            : BoxDecoration(
+                borderRadius: BorderRadius.circular(5.5),
+              ),
         child: Center(
           child: Text(
             title,
-            style: ThemeTextStyle.btn_lg.copyWith(color: ThemeColor.black),
+            style: textStyle ??
+                ThemeTextStyle.btn_lg.copyWith(color: ThemeColor.black),
           ),
         ),
       ),
